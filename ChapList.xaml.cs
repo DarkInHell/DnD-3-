@@ -10,7 +10,7 @@ namespace DnD
     public partial class ChapList : Page
     {
         public Stats stats = new Stats();
-        public AllVariable allBool = new AllVariable();
+        public AllVariable allVariable = new AllVariable();
 
         public ChapList()
         {
@@ -18,32 +18,34 @@ namespace DnD
             DataContext = new ChoseRaces();
         }
 
+        #region Fabric
+
         private void LvlBox_LostFocus(object sender, RoutedEventArgs e)
         {
             Level level = new Level();
             level.LevelEnc(LvlBlock, LvlBox);
-            allBool.MasterBool = true;
+            allVariable.MasterBool = true;
             MasterAssign();
         }
 
         public void MasterAssign()
         {
-            if (allBool.MasterBool == true)
+            if (allVariable.MasterBool == true)
             {
                 MasterNum.Text = "+" + stats.MasterEnc(LvlBox);
-                allBool.MasterBool = false;
+                allVariable.MasterBool = false;
             }
         }
 
         public void StatsPointEnc()
         {
-            if (allBool.Stats == true)
+            if (allVariable.Stats == true)
             {
                 string s = Convert.ToString(stats.StatsEnc(StrengthPoint));
                 stats.TextString(StrengthStats, StrengthSpas, ATLSS, null, s);
 
                 string a = Convert.ToString(stats.StatsEnc(AgilityPoint));
-                stats.TextString(AgilityStats, AgilitySpas, AKRSS, LOVRSS, a);
+                stats.TextString(AgilityStats, AgilitySpas, AKRSS, LORSS, a);
                 stats.TextString(SKRSS, null, null, null, a);
 
                 string v = Convert.ToString(stats.StatsEnc(VitalityPoint));
@@ -61,16 +63,20 @@ namespace DnD
                 stats.TextString(CharismaStats, CharismaSpas, VYSSS, ZAPSS, c);
                 stats.TextString(OBMSS, UBESS, null, null, c);
 
-                allBool.Stats = false;
+                allVariable.Stats = false;
             }
-            allBool.DopStats = true;
+            allVariable.DopStats = true;
         }
 
         public void PointLostFocus()
         {
-            allBool.Stats = true;
+            allVariable.Stats = true;
             StatsPointEnc();
         }
+
+        #endregion
+
+        #region MainStats
 
         private void StrengthPoint_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -102,158 +108,143 @@ namespace DnD
             PointLostFocus();
         }
 
-        private void CSC_Checked(object sender, RoutedEventArgs e)
+        #endregion
+
+        #region SpasStats
+
+        private void CSC_CU (object sender, RoutedEventArgs e)
         {
-            stats.SpasChec(CharismaSpas);
+            CharismaSpas.Text = stats.Check_Uncheck(CharismaSpas, CSC);
         }
 
-        private void CSC_Unchecked(object sender, RoutedEventArgs e)
+        private void WSC_CU(object sender, RoutedEventArgs e)
         {
-            stats.SpasNoChec(CharismaSpas);
+            WitSpas.Text = stats.Check_Uncheck(WitSpas, WSC);
         }
 
-        private void WSC_Checked(object sender, RoutedEventArgs e)
+        private void ISC_CU(object sender, RoutedEventArgs e)
         {
-            stats.SpasChec(WitSpas);
-        }
-
-        private void WSC_Unchecked(object sender, RoutedEventArgs e)
-        {
-            stats.SpasNoChec(WitSpas);
-        }
-
-        private void ISC_Checked(object sender, RoutedEventArgs e)
-        {
-            stats.SpasChec(IntellectSpas);
+            IntellectSpas.Text = stats.Check_Uncheck(IntellectSpas, ISC);
         }
         private void ISC_Unchecked(object sender, RoutedEventArgs e)
         {
             stats.SpasNoChec(IntellectSpas);
         }
 
-        private void VSC_Checked(object sender, RoutedEventArgs e)
+        private void VSC_CU(object sender, RoutedEventArgs e)
         {
-            stats.SpasChec(VitalitySpas);
+            VitalitySpas.Text = stats.Check_Uncheck(VitalitySpas, VSC);
         }
         private void VSC_Unchecked(object sender, RoutedEventArgs e)
         {
             stats.SpasNoChec(VitalitySpas);
         }
 
-        private void ASC_Checked(object sender, RoutedEventArgs e)
+        private void ASC_CU(object sender, RoutedEventArgs e)
         {
-            stats.SpasChec(AgilitySpas);
+            AgilitySpas.Text = stats.Check_Uncheck(AgilitySpas, ASC);
         }
 
-        private void ASC_Unchecked(object sender, RoutedEventArgs e)
+        private void SSC_CU(object sender, RoutedEventArgs e)
         {
-            stats.SpasNoChec(AgilitySpas);
+            StrengthSpas.Text = stats.Check_Uncheck(StrengthSpas, SSC);
         }
 
-        private void SSC_Checked(object sender, RoutedEventArgs e)
+        #endregion
+
+        #region SubStats
+
+        private void AKRSSB_CU(object sender, RoutedEventArgs e)
         {
-            stats.SpasChec(StrengthSpas);
+            AKRSS.Text = stats.Check_Uncheck(AKRSS, AKRSSB);
         }
 
-        private void SSC_Unchecked(object sender, RoutedEventArgs e)
+        private void ANASSB_CU(object sender, RoutedEventArgs e)
         {
-            stats.SpasNoChec(StrengthSpas);
+            ANASS.Text = stats.Check_Uncheck(ANASS, ANASSB);
         }
 
-        private void AKRSSB_Checked(object sender, RoutedEventArgs e)
+        private void ATLSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (AKRSSB.IsChecked == true) { stats.SpasChec(AKRSS); }
+            ATLSS.Text = stats.Check_Uncheck(ATLSS, ATLSSB);
         }
 
-        private void ANASSB_Checked(object sender, RoutedEventArgs e)
+        private void VOSSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (ANASSB.IsChecked == true) { stats.SpasChec(ANASS); }
+            VOSSS.Text = stats.Check_Uncheck(VOSSS, VOSSSB);
         }
 
-        private void ATLSSB_Checked(object sender, RoutedEventArgs e)
+        private void VYZSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (ATLSSB.IsChecked == true) { stats.SpasChec(ATLSS); }
+            VYZSS.Text = stats.Check_Uncheck(VYZSS, VYZSSB);
         }
 
-        private void VOSSSB_Checked(object sender, RoutedEventArgs e)
+        private void VYSSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (VOSSSB.IsChecked == true) { stats.SpasChec(VOSSS); }
+            VYSSS.Text = stats.Check_Uncheck(VYSSS, VYSSSB);
         }
 
-        private void VYZSSB_Checked(object sender, RoutedEventArgs e)
+        private void ZAPSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (VYZSSB.IsChecked == true) { stats.SpasChec(VYZSS); }
+            ZAPSS.Text = stats.Check_Uncheck(ZAPSS, ZAPSSB);
         }
 
-        private void VYSSSB_Checked(object sender, RoutedEventArgs e)
+        private void ISTSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (VYSSSB.IsChecked == true) { stats.SpasChec(VYSSS); }
+            ISTSS.Text = stats.Check_Uncheck(ISTSS, ISTSSB);
         }
 
-        private void ZAPSSB_Checked(object sender, RoutedEventArgs e)
+        private void LORSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (ZAPSSB.IsChecked == true) { stats.SpasChec(ZAPSS); }
+            LORSS.Text = stats.Check_Uncheck(LORSS, LORSSB);
         }
 
-        private void ISTSSB_Checked(object sender, RoutedEventArgs e)
+        private void MAGSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (ISTSSB.IsChecked == true) { stats.SpasChec(ISTSS); }
+            MAGSS.Text = stats.Check_Uncheck(MAGSS, MAGSSB);
         }
 
-        private void LOVRSSB_Checked(object sender, RoutedEventArgs e)
+        private void MEDSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (LOVRSSB.IsChecked == true) { stats.SpasChec(LOVRSS); }
+            MEDSS.Text = stats.Check_Uncheck(MEDSS, MEDSSB);
         }
 
-        private void MAGSSB_Checked(object sender, RoutedEventArgs e)
+        private void OBMSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (MAGSSB.IsChecked == true) { stats.SpasChec(MAGSS); }
+            OBMSS.Text = stats.Check_Uncheck(OBMSS, OBMSSB);
         }
 
-        private void MEDSSB_Checked(object sender, RoutedEventArgs e)
+        private void PRISSB_CU(object sender, RoutedEventArgs e)
         {
-            if (MEDSSB.IsChecked == true) { stats.SpasChec(MEDSS); }
+            PRISS.Text = stats.Check_Uncheck(PRISS, PRISSB);
         }
 
-        private void OBMSSB_Checked(object sender, RoutedEventArgs e)
+        private void PROSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (OBMSSB.IsChecked == true) { stats.SpasChec(OBMSS); }
+            PROSS.Text = stats.Check_Uncheck(PROSS, PROSSB);
         }
 
-        private void PRISSB_Checked(object sender, RoutedEventArgs e)
+        private void RELSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (PRISSB.IsChecked == true) { stats.SpasChec(PRISS); }
+            RELSS.Text = stats.Check_Uncheck(RELSS, RELSSB);
         }
 
-        private void PROSSB_Checked(object sender, RoutedEventArgs e)
+        private void SKRSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (PROSSB.IsChecked == true) { stats.SpasChec(PROSS); }
+            SKRSS.Text = stats.Check_Uncheck(SKRSS, SKRSSB);
         }
 
-        private void RELSSB_Checked(object sender, RoutedEventArgs e)
+        private void UBESSB_CU(object sender, RoutedEventArgs e)
         {
-            if (RELSSB.IsChecked == true) { stats.SpasChec(RELSS); }
+            UBESS.Text = stats.Check_Uncheck(UBESS, UBESSB);
         }
 
-        private void SKRSSB_Checked(object sender, RoutedEventArgs e)
+        private void UZZSSB_CU(object sender, RoutedEventArgs e)
         {
-            if (SKRSSB.IsChecked == true) { stats.SpasChec(SKRSS); }
+            UZZSS.Text = stats.Check_Uncheck(UZZSS, UZZSSB);
         }
 
-        private void UBESSB_Checked(object sender, RoutedEventArgs e)
-        {
-            if (UBESSB.IsChecked == true) { stats.SpasChec(UBESS); }
-        }
-
-        private void UZZSSB_Checked(object sender, RoutedEventArgs e)
-        {
-            if (UZZSSB.IsChecked == true) { stats.SpasChec(UZZSS); }
-        }
-
-        private void TestButton_Click(object sender, RoutedEventArgs e)
-        {
-            TestText.Text = Convert.ToString(allBool.Lvl.Length);
-        }
+        #endregion
     }
 }
 

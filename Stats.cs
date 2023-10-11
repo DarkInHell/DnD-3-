@@ -10,32 +10,21 @@ namespace DnD
         {
             try
             {
-                if (one != null)
+                if (one != null || two != null || three != null || four != null)
                 {
                     one.Text = l;
-                }
-                if (two != null)
-                {
                     two.Text = l;
-                }
-                if (three != null)
-                {
                     three.Text = l;
-                }
-                if (four != null)
-                {
                     four.Text = l;
                 }
             }
-            catch
-            {
-
-            }
+            catch   {   }
         }
 
         public int MasterEnc(TextBox text)
         {
             LvlPoint = Convert.ToInt32(text.Text);
+
             if (LvlPoint < 6500)
             {
                 MasterBonus = 2;
@@ -81,6 +70,19 @@ namespace DnD
             SpasPointNum -= MasterBonus;
             Spas.Text = SpasPointNum.ToString();
             return SpasPointNum;
+        }
+
+        public string Check_Uncheck(TextBlock textBlock, CheckBox checkBox)
+        {
+            if (checkBox.IsChecked == true)
+            {
+                SpasChec(textBlock);
+            }
+            else
+            {
+                SpasNoChec(textBlock);
+            }
+            return textBlock.Text;
         }
     }
 }

@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>sea-dragon_38125.ico</ApplicationIcon>
@@ -58,8 +60,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AllBool.cs" />
+    <Compile Include="AllVariable.cs" />
     <Compile Include="Stats.cs" />
+    <Compile Include="UnderStats.cs" />
     <Page Include="ChapList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

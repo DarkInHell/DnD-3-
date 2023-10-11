@@ -8,6 +8,7 @@ namespace DnD
         public string LevelEnc(TextBlock block, TextBox text)
         {
             LvlPoint = Convert.ToInt32(text.Text);
+
             for (int i = 0; i < Lvl.Length; i++)
             {
                 if (LvlPoint >= Lvl[i])
