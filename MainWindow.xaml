@@ -1,0 +1,27 @@
+﻿<Window x:Class="DnD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DnD"
+        mc:Ignorable="d"
+        Title="DnD Helper" Height="1925" Width="800" WindowStartupLocation="CenterOwner" WindowState="Maximized" ScrollViewer.CanContentScroll="True">
+    <Grid>
+        <Frame Grid.Row="1" Margin="0,25,0,0" x:Name="Frame" NavigationUIVisibility="Hidden" Content="FRAAAAAAAAAAAAAME" Panel.ZIndex="100"/>
+        <Grid Background="AntiqueWhite">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="170"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Background="AntiqueWhite"/>
+            <Border BorderThickness="2" BorderBrush="#2c2c2c">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Лист" Style="{StaticResource TopMenuButton}"        Click="List_Click"/>
+                <Button Content="Карта" Style="{StaticResource TopMenuButton}"        Click="Map_Click"/>
+                <Button Content="Заклинания" Style="{StaticResource TopMenuButton}" Click="Spell_Click"/>
+            </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
