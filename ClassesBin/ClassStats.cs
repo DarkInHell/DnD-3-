@@ -23,7 +23,7 @@ namespace DnD
         public string OwnershipArmor { get { return _ownershipArmor; } set { _ownershipArmor = value; } }
         public string OwnershipWeapon { get { return _ownershipWeapon; } set { _ownershipWeapon = value; } }
         public string OwnershipTool { get { return _ownershipTool; } set { _ownershipTool = value; } }
-        public string OwnershipSpas { get { return _ownershipSpas; } set { _ownershipTool = value; } }
+        public string OwnershipSpas { get { return _ownershipSpas; } set { _ownershipSpas = value; } }
         public string OwnershipSkill { get { return _ownershipSkill; } set { _ownershipSkill = value; } }
     }
 }

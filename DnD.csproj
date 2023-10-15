@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RacesBin\RaceStats.cs" />
     <Compile Include="Stats\AllVariable.cs" />
     <Compile Include="ClassesBin\ClassStats.cs" />
     <Compile Include="ClassesBin\Rogue.cs" />

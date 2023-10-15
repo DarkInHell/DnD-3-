@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace DnD
 {
     public class UpParam : AllVariable
     {
-        public string Ownership(ComboBox comboBox, TextBlock list)
+        public string Ownership(ComboBox comboBox, TextBox list)
         {
-            char[] delimiterChars = { ' ', ',', '.', ':', '\t' };
             try
             {
-                string ClassText = comboBox.Text;
-                if (ClassText == _warrior.ClassName)
+                string Class = comboBox.Text;
+                if (Class == _warrior.ClassName)
                 {
-                    list.Text = _warrior.OwnershipArmor + "   " + _warrior.OwnershipWeapon;
+                    list.Text = "Броня: " + _warrior.OwnershipArmor + "\r\n" + "Оружие: " + _warrior.OwnershipWeapon + "\r\n" + "Инструменты: " + _warrior.OwnershipTool;
                     return list.Text;
                 }
-                else if (ClassText == _rogue.ClassName)
+                else if (Class == _rogue.ClassName)
                 {
-                    list.Text = _rogue.OwnershipArmor + "   " +  _rogue.OwnershipWeapon;
+                    list.Text = "Броня: " + _rogue.OwnershipArmor + "\r\n" + "Оружие: " + _rogue.OwnershipWeapon + "\r\n" + "Инструменты: " + _rogue.OwnershipTool;
                     return list.Text;
                 }
             }
