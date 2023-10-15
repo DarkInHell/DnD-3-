@@ -13,9 +13,9 @@ namespace DnD
         private string selectedClass;
         private string selectedRace;
 
-        public List<string> Classes 
-        { 
-            get { return classes; } 
+        public List<string> Classes
+        {
+            get { return classes; }
             set { classes = value; OnPropertyChanged(); }
         }
 
@@ -34,25 +34,29 @@ namespace DnD
         public string SelectedClass
         {
             get { return selectedClass; }
-            set { selectedClass = value; OnPropertyChanged();}
+            set { selectedClass = value; OnPropertyChanged(); }
         }
 
         public ChoseRaces()
         {
-            var _warrior = new Warrior();
-            var _rogue = new Rogue();
+            ClassLog classLog = new();
+            var _warrior = classLog.Warrior();
+            var _rogue = classLog.Rogue();
             Classes = new List<string>
             {
                  _warrior.ClassName,
                  _rogue.ClassName
             };
-            var _human = new Human();
+            RacesLog racesLog = new();
+            var _human = racesLog.Human();
+            var _elf = racesLog.Elf();
             Races = new List<string>
             {
-                _human.NameRace
+                _human.NameRace,
+                _elf.NameRace
             };
-        }
 
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

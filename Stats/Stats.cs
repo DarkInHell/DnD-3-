@@ -101,7 +101,8 @@ namespace DnD
             var StatsNum4 = Convert.ToInt32(four.Text);
             var StatsNum5 = Convert.ToInt32(five.Text);
             var StatsNum6 = Convert.ToInt32(six.Text);
-            var _human = new Human();
+            RacesLog racesLog = new();
+            var _human = racesLog.Human();
             try
             {
                 if (comboBox.Text == _human.NameRace)
@@ -111,21 +112,22 @@ namespace DnD
                     {
                         listBox.Text += _human.NameAbility[i] + " ";
                     }
-                    StatsNum1 += _human.PointStr;
-                    StatsNum2 += _human.PointDex;
-                    StatsNum3 += _human.PointVit;
-                    StatsNum5 += _human.PointWit;
-                    StatsNum4 += _human.PointInt;
-                    StatsNum6 += _human.PointCha;
-                    one.Text = StatsNum1.ToString();
-                    two.Text = StatsNum2.ToString();
-                    three.Text = StatsNum3.ToString();
-                    four.Text = StatsNum4.ToString();
-                    five.Text = StatsNum5.ToString();
-                    six.Text = StatsNum6.ToString();
+                    RaceStatsEnc(StatsNum1, one, _human.PointStr);
+                    RaceStatsEnc(StatsNum2, two, _human.PointDex);
+                    RaceStatsEnc(StatsNum3, three, _human.PointVit);
+                    RaceStatsEnc(StatsNum4, four, _human.PointInt);
+                    RaceStatsEnc(StatsNum5, five, _human.PointWit);
+                    RaceStatsEnc(StatsNum6, six, _human.PointCha);
                 }
             }
             catch { }
+        }
+
+        public string RaceStatsEnc (int StatsNum, TextBox textBox, int raceStats)
+        {
+            var Num = StatsNum + raceStats;
+            textBox.Text = Num.ToString();
+            return textBox.Text;
         }
     }
 }

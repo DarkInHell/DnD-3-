@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using DnD.ClassesBin;
+using System.Windows.Controls;
 
 namespace DnD
 {
@@ -6,17 +7,18 @@ namespace DnD
     {
         public string Ownership(ComboBox comboBox, TextBox list)
         {
+            ClassLog classLog = new ClassLog();
             try
             {
                 string Class = comboBox.Text;
-                if (Class == _warrior.ClassName)
+                if (Class == classLog.Warrior().ClassName)
                 {
-                    list.Text = "Броня: " + _warrior.OwnershipArmor + "\r\n" + "Оружие: " + _warrior.OwnershipWeapon + "\r\n" + "Инструменты: " + _warrior.OwnershipTool;
+                    list.Text = "Броня: " + classLog.Warrior().OwnershipArmor + "\r\n" + "Оружие: " + classLog.Warrior().OwnershipWeapon + "\r\n" + "Инструменты: " + classLog.Warrior().OwnershipTool;
                     return list.Text;
                 }
-                else if (Class == _rogue.ClassName)
+                else if (Class == classLog.Rogue().ClassName)
                 {
-                    list.Text = "Броня: " + _rogue.OwnershipArmor + "\r\n" + "Оружие: " + _rogue.OwnershipWeapon + "\r\n" + "Инструменты: " + _rogue.OwnershipTool;
+                    list.Text = "Броня: " + classLog.Rogue().OwnershipArmor + "\r\n" + "Оружие: " + classLog.Rogue().OwnershipWeapon + "\r\n" + "Инструменты: " + classLog.Rogue().OwnershipTool;
                     return list.Text;
                 }
             }

@@ -60,14 +60,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RacesBin\Human.cs" />
+    <Compile Include="ClassesBin\Classes.cs" />
+    <Compile Include="ClassesBin\ClassLog.cs" />
+    <Compile Include="RacesBin\Race.cs" />
+    <Compile Include="RacesBin\RacesLog.cs" />
     <Compile Include="RacesBin\RaceStats.cs" />
     <Compile Include="Stats\AllVariable.cs" />
     <Compile Include="ClassesBin\ClassStats.cs" />
-    <Compile Include="ClassesBin\Rogue.cs" />
     <Compile Include="Stats\Stats.cs" />
     <Compile Include="Stats\UnderStats.cs" />
-    <Compile Include="ClassesBin\Warroir.cs" />
     <Compile Include="ClassesBin\UpParam.cs" />
     <Page Include="ChapList.xaml">
       <SubType>Designer</SubType>

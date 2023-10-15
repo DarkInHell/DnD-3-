@@ -14,9 +14,6 @@ namespace DnD
         public int LvlPoint;
         public int LvlView;
 
-        public Warrior _warrior = new Warrior();
-        public Rogue _rogue = new Rogue();
-
         public int[] Lvl = new int[] 
             {0, 300, 900, 2700, 
             6500, 14000, 23000, 34000, 
