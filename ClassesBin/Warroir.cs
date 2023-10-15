@@ -9,7 +9,7 @@ namespace DnD
     public class Warrior : ClassStats
     {
         public Warrior()
-        {
+        { 
             ClassName = "Воин";
             HitDice = 10;
             OwnershipArmor = "Все доспехи, Щиты";

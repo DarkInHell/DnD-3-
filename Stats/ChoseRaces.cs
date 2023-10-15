@@ -1,4 +1,5 @@
 ﻿using DnD.ClassesBin;
+using DnD.RacesBin;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -45,11 +46,10 @@ namespace DnD
                  _warrior.ClassName,
                  _rogue.ClassName
             };
+            var _human = new Human();
             Races = new List<string>
             {
-                "Человек",
-                "Эльф",
-                "Дварф"
+                _human.NameRace
             };
         }
 

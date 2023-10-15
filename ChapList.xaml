@@ -31,7 +31,7 @@
                             <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}" x:Name="ClassCombo" LostFocus="ClassCombo_LostFocus">
                             </ComboBox>
                             <TextBlock Text="Раса" Style="{StaticResource BioTextBlock}"/>
-                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding Races}" SelectedItem="{Binding SelectedRace}" x:Name="RaceCombo"/>
+                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding Races}" SelectedItem="{Binding SelectedRace}" SelectedValue="0" x:Name="RaceCombo" LostFocus="RaceCombo_GotFocus" ForceCursor="True"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Margin="0,0,10,0">
                             <TextBlock Text="Происхождение" Style="{StaticResource BioTextBlock}"/>
@@ -43,7 +43,7 @@
                             <TextBlock Text="Имя Игрока" Style="{StaticResource BioTextBlock}"/>
                             <TextBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextBox}"/>
                             <TextBlock Text="Опыт" Style="{StaticResource BioTextBlock}"/>
-                            <TextBox LostFocus="LvlBox_LostFocus" HorizontalContentAlignment="Center" x:Name="LvlBox" Text="0" Style="{StaticResource BioTextBox}"/>
+                            <TextBox LostFocus="LvlBox_LostFocus" HorizontalContentAlignment="Center" x:Name="LvlBox" Text="0" Style="{StaticResource BioTextBox}" InputScope="Number"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -55,7 +55,7 @@
                     <Rectangle Margin="20" Style="{StaticResource StatsRect}"/>
                     <TextBlock x:Name="StrengthStats" Text="0" Style="{StaticResource StatsTextBlock}"/>
                     <Ellipse Style="{StaticResource StatsEllipse}"/>
-                    <TextBox x:Name="StrengthPoint" LostFocus="StrengthPoint_LostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
+                    <TextBox x:Name="StrengthPoint" LostFocus="StrengthPoint_LostFocus" Text="10" Style="{StaticResource StatsTextBox}" InputScope="Number"/>
 
                     <TextBlock Text="Ловкость" Style="{StaticResource StatsName}"/>
                     <Rectangle Margin="20" Style="{StaticResource StatsRect}"/>

@@ -1,5 +1,7 @@
 ﻿using DnD.ClassesBin;
+using DnD.RacesBin;
 using System;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -38,38 +40,33 @@ namespace DnD
 
         public void StatsPointEnc()
         {
-            if (stats.Stats == true)
-            {
-                string s = Convert.ToString(stats.StatsEnc(StrengthPoint));
-                stats.TextString(StrengthStats, StrengthSpas, ATLSS, null, s);
 
-                string a = Convert.ToString(stats.StatsEnc(AgilityPoint));
-                stats.TextString(AgilityStats, AgilitySpas, AKRSS, LORSS, a);
-                stats.TextString(SKRSS, null, null, null, a);
+            string s = Convert.ToString(stats.StatsEnc(StrengthPoint));
+            stats.TextString(StrengthStats, StrengthSpas, ATLSS, null, s);
 
-                string v = Convert.ToString(stats.StatsEnc(VitalityPoint));
-                stats.TextString(VitalityStats, VitalitySpas, null, null, v);
+            string a = Convert.ToString(stats.StatsEnc(AgilityPoint));
+            stats.TextString(AgilityStats, AgilitySpas, AKRSS, LORSS, a);
+            stats.TextString(SKRSS, null, null, null, a);
 
-                string i = Convert.ToString(stats.StatsEnc(IntellectPoint));
-                stats.TextString(IntellectStats, IntellectSpas, ANASS, ISTSS, i);
-                stats.TextString(MAGSS, PRISS, RELSS, null, i);
+            string v = Convert.ToString(stats.StatsEnc(VitalityPoint));
+            stats.TextString(VitalityStats, VitalitySpas, null, null, v);
 
-                string w = Convert.ToString(stats.StatsEnc(WitPoint));
-                stats.TextString(WitStats, WitSpas, VOSSS, VYZSS, w);
-                stats.TextString(MEDSS, PROSS, UZZSS, null, w);
+            string i = Convert.ToString(stats.StatsEnc(IntellectPoint));
+            stats.TextString(IntellectStats, IntellectSpas, ANASS, ISTSS, i);
+            stats.TextString(MAGSS, PRISS, RELSS, null, i);
 
-                string c = Convert.ToString(stats.StatsEnc(CharismaPoint));
-                stats.TextString(CharismaStats, CharismaSpas, VYSSS, ZAPSS, c);
-                stats.TextString(OBMSS, UBESS, null, null, c);
+            string w = Convert.ToString(stats.StatsEnc(WitPoint));
+            stats.TextString(WitStats, WitSpas, VOSSS, VYZSS, w);
+            stats.TextString(MEDSS, PROSS, UZZSS, null, w);
 
-                stats.Stats = false;               
-            }
-            stats.DopStats = true;
+            string c = Convert.ToString(stats.StatsEnc(CharismaPoint));
+            stats.TextString(CharismaStats, CharismaSpas, VYSSS, ZAPSS, c);
+            stats.TextString(OBMSS, UBESS, null, null, c);
+
         }
 
         public void PointLostFocus()
         {
-            stats.Stats = true;
             StatsPointEnc();
         }
 
@@ -104,6 +101,8 @@ namespace DnD
 
         private void CharismaPoint_LostFocus(object sender, RoutedEventArgs e)
         {
+            PointLostFocus();
+            stats.RaceBonus(RaceCombo, ListSkill, StrengthPoint, AgilityPoint, VitalityPoint, IntellectPoint, WitPoint, CharismaPoint);
             PointLostFocus();
         }
 
@@ -249,5 +248,10 @@ namespace DnD
         {
             upParam.Ownership(ClassCombo, ListSkill);
         }
+
+        private void RaceCombo_GotFocus(object sender, RoutedEventArgs e)
+        {
+        }
+
     }
 }
