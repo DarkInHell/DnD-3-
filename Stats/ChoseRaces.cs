@@ -1,10 +1,7 @@
-﻿using System;
+﻿using DnD.ClassesBin;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DnD
 {
@@ -41,11 +38,12 @@ namespace DnD
 
         public ChoseRaces()
         {
+            var _warrior = new Warrior();
+            var _rogue = new Rogue();
             Classes = new List<string>
             {
-                "Воин",
-                "Маг",
-                "Плут"
+                 _warrior.ClassName,
+                 _rogue.ClassName
             };
             Races = new List<string>
             {

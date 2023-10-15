@@ -1,17 +1,12 @@
-﻿using System;
+﻿using DnD.ClassesBin;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace DnD
 {
-    /// <summary>
-    /// Логика взаимодействия для ChapList.xaml
-    /// </summary>
     public partial class ChapList : Page
     {
-        public Stats stats = new Stats();
-        public AllVariable allVariable = new AllVariable();
-
         public ChapList()
         {
             InitializeComponent();
@@ -20,26 +15,30 @@ namespace DnD
 
         #region Fabric
 
+        private Stats stats = new Stats();
+        private UpParam upParam = new UpParam();
+
+
         private void LvlBox_LostFocus(object sender, RoutedEventArgs e)
         {
             Level level = new Level();
             level.LevelEnc(LvlBlock, LvlBox);
-            allVariable.MasterBool = true;
+            stats.MasterBool = true;
             MasterAssign();
         }
 
         public void MasterAssign()
         {
-            if (allVariable.MasterBool == true)
+            if (stats.MasterBool == true)
             {
                 MasterNum.Text = "+" + stats.MasterEnc(LvlBox);
-                allVariable.MasterBool = false;
+                stats.MasterBool = false;
             }
         }
 
         public void StatsPointEnc()
         {
-            if (allVariable.Stats == true)
+            if (stats.Stats == true)
             {
                 string s = Convert.ToString(stats.StatsEnc(StrengthPoint));
                 stats.TextString(StrengthStats, StrengthSpas, ATLSS, null, s);
@@ -63,14 +62,14 @@ namespace DnD
                 stats.TextString(CharismaStats, CharismaSpas, VYSSS, ZAPSS, c);
                 stats.TextString(OBMSS, UBESS, null, null, c);
 
-                allVariable.Stats = false;
+                stats.Stats = false;               
             }
-            allVariable.DopStats = true;
+            stats.DopStats = true;
         }
 
         public void PointLostFocus()
         {
-            allVariable.Stats = true;
+            stats.Stats = true;
             StatsPointEnc();
         }
 
@@ -245,7 +244,10 @@ namespace DnD
         }
 
         #endregion
+
+        private void ClassCombo_LostFocus(object sender, RoutedEventArgs e)
+        {
+            upParam.Ownership(ClassCombo, ListSkill);
+        }
     }
 }
-
-

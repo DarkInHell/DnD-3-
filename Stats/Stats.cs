@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection.Emit;
 using System.Windows.Controls;
 
 namespace DnD
@@ -9,16 +8,25 @@ namespace DnD
         public void TextString(TextBlock one, TextBlock two, TextBlock three, TextBlock four, string l)
         {
             try
-            {
-                if (one != null || two != null || three != null || four != null)
+            { 
+                if (one != null)
                 {
                     one.Text = l;
+                }
+                if (two != null)
+                {
                     two.Text = l;
+                }
+                if (three != null)
+                {
                     three.Text = l;
+                }
+                if (four != null)
+                {
                     four.Text = l;
                 }
             }
-            catch   {   }
+            catch { }
         }
 
         public int MasterEnc(TextBox text)

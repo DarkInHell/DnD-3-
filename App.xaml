@@ -124,7 +124,6 @@
             <Setter Property="Background" Value="AntiqueWhite"/>
             <Setter Property="FontFamily" Value="Segoe Script"/>
             <Setter Property="FontSize" Value="14"/>
-            <!--<Setter Property="BorderThickness" Value="0"/>-->
         </Style>
         <Style x:Key="VdohnRect" TargetType="Rectangle">
             <Setter Property="Width" Value="50"/>
@@ -179,7 +178,16 @@
             <Setter Property="FontFamily" Value="Segoe Script"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="40,-55,0,0"/>
-            <!--<Setter Property="BorderThickness" Value="0"/>-->
+        </Style>
+        <Style x:Key="Nyvik" TargetType="TextBlock">
+            <Setter Property="Width" Value="210"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Foreground" Value="#2c2c2c"/>
+            <Setter Property="Background" Value="#FFFAF7F2"/>
+            <Setter Property="FontFamily" Value="Segoe Script"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="TextAlignment" Value="Center"/>
         </Style>
         <Style x:Key="MasterEllipse" TargetType="Ellipse">
             <Setter Property="Width" Value="50"/>
@@ -218,13 +226,18 @@
             <Setter Property="Margin" Value="5,-5,-5,0"/>
             <Setter Property="TextDecorations" Value="Underline"/>
         </Style>
-        <Style x:Key="NavykRect" TargetType="Rectangle">
+        <Style x:Key="NavykRect" TargetType="ListBox">
             <Setter Property="Width" Value="250"/>
-            <Setter Property="Height" Value="600"/>
-            <Setter Property="Margin" Value="20"/>
-            <Setter Property="Fill" Value="#FFFAF7F2"/>
-            <Setter Property="Stroke" Value="#2c2c2c"/>
-            <Setter Property="StrokeThickness" Value="2"/>
+            <Setter Property="Height" Value="355"/>
+            <Setter Property="Background" Value="#FFFAF7F2"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#2c2c2c"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Background" Value="#FFFAF7F2"/>
+                    <Setter Property="Foreground" Value="#FFFAF7F2"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <Style x:Key="NavykNameBlock" TargetType="TextBlock">
             <Setter Property="Width" Value="185"/>

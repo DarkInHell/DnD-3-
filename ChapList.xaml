@@ -12,6 +12,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="170"/>
+                <RowDefinition Height="800"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
@@ -27,9 +28,10 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel HorizontalAlignment="Right" Margin="0,0,10,0">
                             <TextBlock Text="Класс" Style="{StaticResource BioTextBlock}"/>
-                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}"/>
+                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}" x:Name="ClassCombo" LostFocus="ClassCombo_LostFocus">
+                            </ComboBox>
                             <TextBlock Text="Раса" Style="{StaticResource BioTextBlock}"/>
-                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding Races}" SelectedItem="{Binding SelectedRace}"/>
+                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding Races}" SelectedItem="{Binding SelectedRace}" x:Name="RaceCombo"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Margin="0,0,10,0">
                             <TextBlock Text="Происхождение" Style="{StaticResource BioTextBlock}"/>
@@ -46,8 +48,8 @@
                     </StackPanel>
                 </Border>
             </StackPanel>
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Height="800" VerticalAlignment="Top">
+                <StackPanel Height="800" VerticalAlignment="Top">
 
                     <TextBlock Text="Сила" Style="{StaticResource StatsName}"/>
                     <Rectangle Margin="20" Style="{StaticResource StatsRect}"/>
@@ -86,7 +88,7 @@
                     <TextBox x:Name="CharismaPoint" LostFocus="CharismaPoint_LostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
 
                 </StackPanel>
-                <StackPanel Margin="-15,0,0,0">
+                <StackPanel Margin="-15,0,0,0" Height="800" VerticalAlignment="Top">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Rectangle Style="{StaticResource VdohnRect}"/>
@@ -144,8 +146,8 @@
                         </StackPanel>
                     </StackPanel>
                     <StackPanel>
-                        <Rectangle Style="{StaticResource NavykRect}"/>
-                        <StackPanel Margin="30,-610,30,0" Height="690" >
+                        <ListBox Style="{StaticResource NavykRect}" ScrollViewer.CanContentScroll="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                            <TextBlock Text="НАВЫКИ" Margin="10" Style="{StaticResource Nyvik}" IsEnabled="False"/>
                             <StackPanel Orientation="Horizontal"  Height="30">
                                 <CheckBox VerticalAlignment="Center" x:Name="AKRSSB" Click="AKRSSB_CU"/>
                                 <TextBlock Text="0" x:Name="AKRSS" Style="{StaticResource NavykStatsBlock}"/>
@@ -236,10 +238,12 @@
                                 <TextBlock Text="0" x:Name="UZZSS" Style="{StaticResource NavykStatsBlock}"/>
                                 <TextBlock Text="Уход за зверями (Муд)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
-                            <TextBlock Text="НАВЫКИ" Margin="10" Style="{StaticResource VdohnText}"/>
-                        </StackPanel>
+                        </ListBox>
                     </StackPanel>
                 </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="3">
+            <TextBlock x:Name="ListSkill" Style="{StaticResource SpasStatsBlock}" TextWrapping="Wrap" Height="114" Width="279" HorizontalAlignment="Left"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>

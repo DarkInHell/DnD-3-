@@ -60,9 +60,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AllVariable.cs" />
-    <Compile Include="Stats.cs" />
-    <Compile Include="UnderStats.cs" />
+    <Compile Include="Stats\AllVariable.cs" />
+    <Compile Include="ClassesBin\ClassStats.cs" />
+    <Compile Include="ClassesBin\Rogue.cs" />
+    <Compile Include="Stats\Stats.cs" />
+    <Compile Include="Stats\UnderStats.cs" />
+    <Compile Include="ClassesBin\Warroir.cs" />
+    <Compile Include="ClassesBin\UpParam.cs" />
     <Page Include="ChapList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,8 +82,8 @@
     <Compile Include="ChapList.xaml.cs">
       <DependentUpon>ChapList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChoseRaces.cs" />
-    <Compile Include="Level.cs" />
+    <Compile Include="Stats\ChoseRaces.cs" />
+    <Compile Include="Stats\Level.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
