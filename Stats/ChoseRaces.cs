@@ -1,8 +1,11 @@
 ﻿using DnD.ClassesBin;
 using DnD.RacesBin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using static DnD.RacesBin.RacesLog;
 
 namespace DnD
 {
@@ -39,24 +42,22 @@ namespace DnD
 
         public ChoseRaces()
         {
-            ClassLog classLog = new();
-            var _warrior = classLog.Warrior();
-            var _rogue = classLog.Rogue();
-            Classes = new List<string>
+            ClassStats[] classes = new ClassStats[] { new Warrior(), new Rogue() };
+            Classes = new List<string>();
+            for (int i = 0; i < classes.Length; i++)
             {
-                 _warrior.ClassName,
-                 _rogue.ClassName
-            };
-            RacesLog racesLog = new();
-            var _human = racesLog.Human();
-            var _elf = racesLog.Elf();
-            Races = new List<string>
+                Classes.Add(classes[i].ClassName);
+            }
+
+            RaceStats[] races = new RaceStats[] { new Human(), new Elf() };
+            Races = new List<string>();
+            for (int j = 0; j < races.Length; j++)
             {
-                _human.NameRace,
-                _elf.NameRace
-            };
+                Races.Add(races[j].NameRace);
+            }
 
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

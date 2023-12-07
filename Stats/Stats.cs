@@ -1,6 +1,8 @@
 ﻿using DnD.RacesBin;
 using System;
+using System.Windows;
 using System.Windows.Controls;
+using static DnD.RacesBin.RacesLog;
 
 namespace DnD
 {
@@ -9,7 +11,7 @@ namespace DnD
         public void TextString(TextBlock one, TextBlock two, TextBlock three, TextBlock four, string l)
         {
             try
-            { 
+            {
                 if (one != null)
                 {
                     one.Text = l;
@@ -93,37 +95,44 @@ namespace DnD
             }
             return textBlock.Text;
         }
-        public void RaceBonus (ComboBox comboBox, TextBox listBox, TextBox one, TextBox two, TextBox three, TextBox four, TextBox five, TextBox six)
+        bool flag = true;
+        public void RaceBonus(ComboBox comboBox, TextBox listBox, TextBox one, TextBox two, TextBox three, TextBox four, TextBox five, TextBox six)
         {
-            var StatsNum1 = Convert.ToInt32(one.Text);
-            var StatsNum2 = Convert.ToInt32(two.Text);
-            var StatsNum3 = Convert.ToInt32(three.Text);
-            var StatsNum4 = Convert.ToInt32(four.Text);
-            var StatsNum5 = Convert.ToInt32(five.Text);
-            var StatsNum6 = Convert.ToInt32(six.Text);
-            RacesLog racesLog = new();
-            var _human = racesLog.Human();
+            TextBox[] textBoxes = new TextBox[] { one, two, three, four, five, six };
+            string[] StatsNum = new string[] { one.Text, two.Text, three.Text, four.Text, five.Text, six.Text };
+            RaceStats[] racesLog = new RaceStats[] { new Human(), new Elf() };
             try
             {
-                if (comboBox.Text == _human.NameRace)
+                if (flag)
                 {
-                    listBox.Text += "\r\n" + "Расовые особенности: ";
-                    for (int i = 0; i < _human.NameAbility.Length; i++)
+                    for (int i = 0; i < racesLog.Length - 1; i++)
                     {
-                        listBox.Text += _human.NameAbility[i] + " ";
+                        if (comboBox.Text == racesLog[i].NameRace)
+                        {
+                            if (!listBox.Text.Contains("\r\n" + "Расовые особенности: "))
+                            {
+                                listBox.Text += "\r\n" + "Расовые особенности: ";
+                                for (int j = 0; j < racesLog[i].NameAbility.Length; j++)
+                                {
+                                    listBox.Text += racesLog[i].NameAbility[j] + " ";
+                                }
+                            }
+                            for (int k = 0; k < racesLog[i].Point.Length; k++)
+                            {
+                                RaceStatsEnc(Convert.ToInt32(StatsNum[k]), textBoxes[k], racesLog[i].Point[k]);
+                            }
+                        }
                     }
-                    RaceStatsEnc(StatsNum1, one, _human.PointStr);
-                    RaceStatsEnc(StatsNum2, two, _human.PointDex);
-                    RaceStatsEnc(StatsNum3, three, _human.PointVit);
-                    RaceStatsEnc(StatsNum4, four, _human.PointInt);
-                    RaceStatsEnc(StatsNum5, five, _human.PointWit);
-                    RaceStatsEnc(StatsNum6, six, _human.PointCha);
+                    flag = false;
                 }
             }
-            catch { }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
         }
 
-        public string RaceStatsEnc (int StatsNum, TextBox textBox, int raceStats)
+        public string RaceStatsEnc(int StatsNum, TextBox textBox, int raceStats)
         {
             var Num = StatsNum + raceStats;
             textBox.Text = Num.ToString();
