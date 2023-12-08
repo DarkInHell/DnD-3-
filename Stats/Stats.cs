@@ -32,6 +32,25 @@ namespace DnD
             catch { }
         }
 
+        public void TextString(string l, TextBlock checkBox, params CheckBox[] checkBoxes)
+        {
+            try
+            {
+                for (int i = 0; i < checkBoxes.Length; i++)
+                {
+                    if (checkBoxes[i] != null)
+                    {
+                        checkBoxes[i].Content = l;
+                    }
+                }
+                checkBox.Text = l;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
+        }
+
         public int MasterEnc(TextBox text)
         {
             LvlPoint = Convert.ToInt32(text.Text);
@@ -67,34 +86,35 @@ namespace DnD
             return StatsNum;
         }
 
-        public int SpasChec(TextBlock Spas)
+        public int SpasChec(CheckBox Spas)
         {
-            SpasPointNum = Convert.ToInt32(Spas.Text);
+            SpasPointNum = Convert.ToInt32(Spas.Content);
             SpasPointNum += MasterBonus;
-            Spas.Text = SpasPointNum.ToString();
+            Spas.Content = SpasPointNum.ToString();
             return SpasPointNum;
         }
 
-        public int SpasNoChec(TextBlock Spas)
+        public int SpasNoChec(CheckBox Spas)
         {
-            SpasPointNum = Convert.ToInt32(Spas.Text);
+            SpasPointNum = Convert.ToInt32(Spas.Content);
             SpasPointNum -= MasterBonus;
-            Spas.Text = SpasPointNum.ToString();
+            Spas.Content = SpasPointNum.ToString();
             return SpasPointNum;
         }
 
-        public string Check_Uncheck(TextBlock textBlock, CheckBox checkBox)
+        public object Check_Uncheck(CheckBox checkBox)
         {
             if (checkBox.IsChecked == true)
             {
-                SpasChec(textBlock);
+                SpasChec(checkBox);
             }
             else
             {
-                SpasNoChec(textBlock);
+                SpasNoChec(checkBox);
             }
-            return textBlock.Text;
+            return checkBox.Content;
         }
+
         bool flag = true;
         public void RaceBonus(ComboBox comboBox, TextBox listBox, TextBox one, TextBox two, TextBox three, TextBox four, TextBox five, TextBox six)
         {

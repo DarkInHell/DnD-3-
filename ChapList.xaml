@@ -55,37 +55,37 @@
                     <Rectangle Margin="20" Style="{StaticResource StatsRect}"/>
                     <TextBlock x:Name="StrengthStats" Text="0" Style="{StaticResource StatsTextBlock}"/>
                     <Ellipse Style="{StaticResource StatsEllipse}"/>
-                    <TextBox x:Name="StrengthPoint" LostFocus="StrengthPoint_LostFocus" Text="10" Style="{StaticResource StatsTextBox}" InputScope="Number"/>
+                    <TextBox x:Name="StrengthPoint" LostFocus="PointLostFocus" Text="10" Style="{StaticResource StatsTextBox}" InputScope="Number"/>
 
                     <TextBlock Text="Ловкость" Style="{StaticResource StatsName}"/>
                     <Rectangle Margin="20" Style="{StaticResource StatsRect}"/>
                     <TextBlock x:Name="AgilityStats" Text="0" Style="{StaticResource StatsTextBlock}"/>
                     <Ellipse Style="{StaticResource StatsEllipse}"/>
-                    <TextBox x:Name="AgilityPoint" LostFocus="AgilityPoint_LostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
+                    <TextBox x:Name="AgilityPoint" LostFocus="PointLostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
 
                     <TextBlock Text="Телосложение" Style="{StaticResource StatsName}"/>
                     <Rectangle Margin="20" Style="{StaticResource StatsRect}"/>
                     <TextBlock x:Name="VitalityStats" Text="0" Style="{StaticResource StatsTextBlock}"/>
                     <Ellipse Style="{StaticResource StatsEllipse}"/>
-                    <TextBox x:Name="VitalityPoint" LostFocus="VitalityPoint_LostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
+                    <TextBox x:Name="VitalityPoint" LostFocus="PointLostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
 
                     <TextBlock Text="Интеллект" Style="{StaticResource StatsName}"/>
                     <Rectangle Margin="20" Style="{StaticResource StatsRect}"/>
                     <TextBlock x:Name="IntellectStats" Text="0" Style="{StaticResource StatsTextBlock}"/>
                     <Ellipse Style="{StaticResource StatsEllipse}"/>
-                    <TextBox x:Name="IntellectPoint" LostFocus="IntellectPoint_LostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
+                    <TextBox x:Name="IntellectPoint" LostFocus="PointLostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
 
                     <TextBlock Text="Мудрость" Style="{StaticResource StatsName}"/>
                     <Rectangle Margin="20" Style="{StaticResource StatsRect}"/>
                     <TextBlock x:Name="WitStats" Text="0" Style="{StaticResource StatsTextBlock}"/>
                     <Ellipse Style="{StaticResource StatsEllipse}"/>
-                    <TextBox x:Name="WitPoint" LostFocus="WitPoint_LostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
+                    <TextBox x:Name="WitPoint" LostFocus="PointLostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
 
                     <TextBlock Text="Харизма" Style="{StaticResource StatsName}"/>
                     <Rectangle Margin="20" Style="{StaticResource StatsRect}"/>
                     <TextBlock x:Name="CharismaStats" Text="0" Style="{StaticResource StatsTextBlock}"/>
                     <Ellipse Style="{StaticResource StatsEllipse}"/>
-                    <TextBox x:Name="CharismaPoint" LostFocus="CharismaPoint_LostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
+                    <TextBox x:Name="CharismaPoint" LostFocus="PointLostFocus" Text="10" Style="{StaticResource StatsTextBox}"/>
 
                 </StackPanel>
                 <StackPanel Margin="-15,0,0,0" Height="800" VerticalAlignment="Top">
@@ -113,33 +113,27 @@
                         <Rectangle Style="{StaticResource SpasRect}"/>
                         <StackPanel Margin="30,-260,30,7" Height="230">
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" Click="SSC_CU" Name="SSC"/>
-                                <TextBlock x:Name="StrengthSpas" Text="0" Style="{StaticResource SpasStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" Click="ClickCheck" Name="SSC" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Сила" Style="{StaticResource SpasNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" Click="ASC_CU" Name="ASC"/>
-                                <TextBlock x:Name="AgilitySpas" Text="0" Style="{StaticResource SpasStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" Click="ClickCheck" Name="ASC" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Ловкость" Style="{StaticResource SpasNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" Click="VSC_CU" Name="VSC"/>
-                                <TextBlock x:Name="VitalitySpas" Text="0" Style="{StaticResource SpasStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" Click="ClickCheck" Name="VSC" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Телосложение" Style="{StaticResource SpasNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" Click="ISC_CU" Name="ISC"/>
-                                <TextBlock x:Name="IntellectSpas" Text="0" Style="{StaticResource SpasStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" Click="ClickCheck" Name="ISC" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Интеллект" Style="{StaticResource SpasNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" Click="WSC_CU" Name="WSC"/>
-                                <TextBlock x:Name="WitSpas" Text="0" Style="{StaticResource SpasStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" Click="ClickCheck" Name="WSC" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Мудрость" Style="{StaticResource SpasNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" Click="CSC_CU" Name="CSC"/>
-                                <TextBlock x:Name="CharismaSpas" Text="0" Style="{StaticResource SpasStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" Click="ClickCheck" Name="CSC" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Харизма" Style="{StaticResource SpasNameBlock}"/>
                             </StackPanel>
                             <TextBlock Text="СПАСБРОСКИ" Margin="10" Style="{StaticResource VdohnText}"/>
@@ -149,93 +143,75 @@
                         <ListBox Style="{StaticResource NavykRect}" ScrollViewer.CanContentScroll="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                             <TextBlock Text="НАВЫКИ" Margin="10" Style="{StaticResource Nyvik}" IsEnabled="False"/>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="AKRSSB" Click="AKRSSB_CU"/>
-                                <TextBlock Text="0" x:Name="AKRSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="AKRSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Акробатика (Лов)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="ANASSB" Click="ANASSB_CU"/>
-                                <TextBlock Text="0" x:Name="ANASS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="ANASSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Анализ (Инт)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="ATLSSB" Click="ATLSSB_CU"/>
-                                <TextBlock Text="0" x:Name="ATLSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="ATLSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Атлетика (Сил)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="VOSSSB" Click="VOSSSB_CU"/>
-                                <TextBlock Text="0" x:Name="VOSSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="VOSSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Восприятие (Муд)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="VYZSSB" Click="VYZSSB_CU"/>
-                                <TextBlock Text="0" x:Name="VYZSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="VYZSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Выживание (Муд)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="VYSSSB" Click="VYSSSB_CU"/>
-                                <TextBlock Text="0" x:Name="VYSSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="VYSSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Выступление (Хар)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="ZAPSSB" Click="ZAPSSB_CU"/>
-                                <TextBlock Text="0" x:Name="ZAPSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="ZAPSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Запугивание (Хар)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="ISTSSB" Click="ISTSSB_CU"/>
-                                <TextBlock Text="0" x:Name="ISTSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="ISTSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="История (Инт)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="LORSSB" Click="LORSSB_CU"/>
-                                <TextBlock Text="0" x:Name="LORSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="LORSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Ловкость рук (Лов)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="MAGSSB" Click="MAGSSB_CU"/>
-                                <TextBlock Text="0" x:Name="MAGSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="MAGSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Магия (Инт)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="MEDSSB" Click="MEDSSB_CU"/>
-                                <TextBlock Text="0" x:Name="MEDSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="MEDSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Медицина (Муд)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="OBMSSB" Click="OBMSSB_CU"/>
-                                <TextBlock Text="0" x:Name="OBMSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="OBMSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Обман (Хар)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="PRISSB" Click="PRISSB_CU"/>
-                                <TextBlock Text="0" x:Name="PRISS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="PRISSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Природа (Инт)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="PROSSB" Click="PROSSB_CU"/>
-                                <TextBlock Text="0" x:Name="PROSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="PROSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Проницательность (Муд)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="RELSSB" Click="RELSSB_CU"/>
-                                <TextBlock Text="0" x:Name="RELSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="RELSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Религия (Инт)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="SKRSSB" Click="SKRSSB_CU"/>
-                                <TextBlock Text="0" x:Name="SKRSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="SKRSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Скрытность (Лов)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="UBESSB" Click="UBESSB_CU"/>
-                                <TextBlock Text="0" x:Name="UBESS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="UBESSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Убеждение (Хар)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"  Height="30">
-                                <CheckBox VerticalAlignment="Center" x:Name="UZZSSB" Click="UZZSSB_CU"/>
-                                <TextBlock Text="0" x:Name="UZZSS" Style="{StaticResource NavykStatsBlock}"/>
+                                <CheckBox VerticalAlignment="Center" x:Name="UZZSSB" Click="ClickCheck" Content="0" Style="{StaticResource SpasCheckBox}"/>
                                 <TextBlock Text="Уход за зверями (Муд)" Style="{StaticResource NavykNameBlock}"/>
                             </StackPanel>
                         </ListBox>

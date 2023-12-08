@@ -15,6 +15,7 @@ namespace DnD.ClassesBin
         private string? _tool   = null;
         private string _spas    = "Сила, Телосложение";
         private string _skill   = "Акробатика, Атлетика, Восприятие, Выживание, Запугивание, История, Проницательность, Уход за животными";
+        private int    _value   = 2;
         public override string ClassName { get { return _name; } set { _name = value; } }
         public override int HitDice { get { return _hit; } set => _hit = value; }
         public override string OwnershipArmor { get => _armor; set => _armor = value; }
@@ -22,6 +23,7 @@ namespace DnD.ClassesBin
         public override string? OwnershipTool { get => _tool; set => _tool = value; }
         public override string OwnershipSpas { get => _spas; set => _spas = value; }
         public override string OwnershipSkill { get => _skill; set => _skill = value; }
+        public override int SkillValue { get => _value; set => _value = value; }
     }
 
     public class Rogue : ClassStats
@@ -33,6 +35,8 @@ namespace DnD.ClassesBin
         private string? _tool = "Воровские инструменты";
         private string _spas = "Ловкость, Интеллект";
         private string _skill = "Акробатика, Атлетика, Восприятие, Выступление, Запугивание, Ловкость рук, Обман, Проницательность, Расследование, Скрытность, Убеждение";
+        private int _value = 4;
+
         public override string ClassName { get { return _name; } set { _name = value; } }
         public override int HitDice { get { return _hit; } set => _hit = value; }
         public override string OwnershipArmor { get => _armor; set => _armor = value; }
@@ -40,5 +44,7 @@ namespace DnD.ClassesBin
         public override string? OwnershipTool { get => _tool; set => _tool = value; }
         public override string OwnershipSpas { get => _spas; set => _spas = value; }
         public override string OwnershipSkill { get => _skill; set => _skill = value; }
+        public override int SkillValue { get => _value; set => _value = value; }
+
     }
 }

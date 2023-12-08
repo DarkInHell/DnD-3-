@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:DnD"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style x:Key="SpasCheckBox" TargetType="CheckBox">
+            <Setter Property="FontFamily" Value="Segoe Script"/>
+            <Setter Property="Margin" Value="0,0,30,0"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
         <Style x:Key="TopMenuButton" TargetType="Button">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="MinWidth" Value="100"/>
@@ -221,9 +227,9 @@
             <Setter Property="Foreground" Value="#2c2c2c"/>
             <Setter Property="Background" Value="#FFFAF7F2"/>
             <Setter Property="FontFamily" Value="Segoe Script"/>
-            <Setter Property="FontSize" Value="15"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Margin" Value="5,-5,-5,0"/>
+            <Setter Property="FontSize" Value="15"/>
             <Setter Property="TextDecorations" Value="Underline"/>
         </Style>
         <Style x:Key="NavykRect" TargetType="ListBox">
