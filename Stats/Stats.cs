@@ -125,7 +125,7 @@ namespace DnD
             {
                 if (flag)
                 {
-                    for (int i = 0; i < racesLog.Length - 1; i++)
+                    for (int i = 0; i < racesLog.Length; i++)
                     {
                         if (comboBox.Text == racesLog[i].NameRace)
                         {
@@ -134,7 +134,7 @@ namespace DnD
                                 listBox.Text += "\r\n" + "Расовые особенности: ";
                                 for (int j = 0; j < racesLog[i].NameAbility.Length; j++)
                                 {
-                                    listBox.Text += racesLog[i].NameAbility[j] + " ";
+                                    listBox.Text += racesLog[i].NameAbility[j] + ", ";
                                 }
                             }
                             for (int k = 0; k < racesLog[i].Point.Length; k++)

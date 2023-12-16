@@ -3,18 +3,21 @@ using System.Windows.Controls;
 
 namespace DnD
 {
-    public class Level : AllVariable
+    public static class Level
     {
-        public string LevelEnc(TextBlock block, TextBox text)
+        public static string LevelEnc(TextBlock block, TextBox text)
         {
-            LvlPoint = Convert.ToInt32(text.Text);
-
-            for (int i = 0; i < Lvl.Length; i++)
+            AllVariable allVariable = new()
             {
-                if (LvlPoint >= Lvl[i])
+                LvlPoint = Convert.ToInt32(text.Text)
+            };
+
+            for (int i = 0; i < allVariable.Lvl.Length; i++)
+            {
+                if (allVariable.LvlPoint >= allVariable.Lvl[i])
                 {
-                    LvlView = i + 1;
-                    block.Text = $"{LvlView}";
+                    allVariable.LvlView = i + 1;
+                    block.Text = $"{allVariable.LvlView}";
                 }
             }
 

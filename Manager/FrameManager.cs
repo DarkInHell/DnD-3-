@@ -14,20 +14,14 @@ namespace DnD.Manager
         private static ChapList _chapList;
         public static ChapList OnlyOneChapList()
         {
-            if (_chapList == null)
-            {
-                _chapList = new ChapList();
-            }
+            _chapList ??= new ChapList();
             return _chapList;
         }
 
         private static MapList _mapList;
         public static MapList OnlyOneMapList()
         {
-            if (_mapList == null)
-            {
-                _mapList = new MapList();
-            }
+            _mapList ??= new MapList();
             return _mapList;
         }
     }

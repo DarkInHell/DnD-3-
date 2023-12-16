@@ -22,8 +22,7 @@ namespace DnD
 
         private void LvlBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            Level level = new Level();
-            level.LevelEnc(LvlBlock, LvlBox);
+            Level.LevelEnc(LvlBlock, LvlBox);
             stats.MasterBool = true;
             MasterAssign();
         }
@@ -59,10 +58,16 @@ namespace DnD
             stats.TextString(c, CharismaStats, CSC, VYSSSB, ZAPSSB, OBMSSB, UBESSB);
 
         }
-
+        private int Score = 0;
         private void PointLostFocus(object sender, RoutedEventArgs e)
         {
             StatsPointEnc();
+            Score++;
+            if (Score == 6) 
+            {
+                stats.RaceBonus(RaceCombo, ListSkill, StrengthPoint, AgilityPoint, VitalityPoint, IntellectPoint, WitPoint, CharismaPoint);
+                StatsPointEnc();
+            }
         }
 
         private void ClickCheck (object sender, RoutedEventArgs e)
