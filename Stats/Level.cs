@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
+using static DnD.AllVariable;
 
 namespace DnD
 {
@@ -7,21 +8,32 @@ namespace DnD
     {
         public static string LevelEnc(TextBlock block, TextBox text)
         {
-            AllVariable allVariable = new()
-            {
-                LvlPoint = Convert.ToInt32(text.Text)
-            };
+            LvlPoint = Convert.ToInt32(text.Text);
 
-            for (int i = 0; i < allVariable.Lvl.Length; i++)
+            for (int i = 0; i < Lvl.Length; i++)
             {
-                if (allVariable.LvlPoint >= allVariable.Lvl[i])
+                if (LvlPoint >= Lvl[i])
                 {
-                    allVariable.LvlView = i + 1;
-                    block.Text = $"{allVariable.LvlView}";
+                    LvlView = i + 1;
+                    block.Text = $"{LvlView}";
                 }
             }
 
             return block.Text;
+        }
+        public static int LevelEnc(TextBox text)
+        {
+            LvlPoint = Convert.ToInt32(text.Text);
+
+            for (int i = 0; i < Lvl.Length; i++)
+            {
+                if (LvlPoint >= Lvl[i])
+                {
+                    LvlView = i + 1;
+                }
+            }
+
+            return LvlView;
         }
     }
 }

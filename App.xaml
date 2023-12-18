@@ -15,7 +15,7 @@
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="FontFamily" Value="Segoe Script"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Panel.ZIndex" Value="100000"/>
+            <Setter Property="Panel.ZIndex" Value="2"/>
             <Setter Property="Background" Value="AntiqueWhite"/>
             <Setter Property="Foreground" Value="#2c2c2c"/>
             <Setter Property="FontWeight" Value="Heavy"/>
@@ -36,6 +36,37 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
+        <Style x:Key="SaveButton" TargetType="Button">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontFamily" Value="Segoe Script"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Panel.ZIndex" Value="2"/>
+            <Setter Property="Background" Value="#2c2c2c"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#2c2c2c"/>
+            <Setter Property="Foreground" Value="AntiqueWhite"/>
+            <Setter Property="FontWeight" Value="Heavy"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType = "{x:Type Button}">
+                        <Border Background = "{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="AntiqueWhite"/>
+                    <Setter Property="Foreground" Value="#2c2c2c"/>
+                    <Setter Property="BorderBrush" Value="#2c2c2c"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
         <Style x:Key="BioTextBlock" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Segoe Script"/>
             <Setter Property="FontSize" Value="18"/>
