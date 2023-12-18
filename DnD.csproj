@@ -66,6 +66,7 @@
     <Compile Include="MapList.xaml.cs">
       <DependentUpon>MapList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Player\Gamer.cs" />
     <Compile Include="RacesBin\RacesLog.cs" />
     <Compile Include="RacesBin\RaceStats.cs" />
     <Compile Include="Stats\AllVariable.cs" />

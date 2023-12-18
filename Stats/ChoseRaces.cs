@@ -6,26 +6,36 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using static DnD.RacesBin.RacesLog;
+using static DnD.AllVariable;
+using System.Windows;
 
 namespace DnD
 {
     public class ChoseRaces : INotifyPropertyChanged
     {
-        private List<string> classes;
-        private List<string> races;
+        
+        private List<string> listClass;
+        private List<string> listRace;
+        private List<string> listAlignment;
         private string selectedClass;
         private string selectedRace;
+        private string selectedAlignment;
 
-        public List<string> Classes
+        public List<string> ListClass
         {
-            get { return classes; }
-            set { classes = value; OnPropertyChanged(); }
+            get { return listClass; }
+            set { listClass = value; OnPropertyChanged(); }
         }
 
-        public List<string> Races
+        public List<string> ListRace
         {
-            get { return races; }
-            set { races = value; OnPropertyChanged(); }
+            get { return listRace; }
+            set { listRace = value; OnPropertyChanged(); }
+        }
+        public List<string> ListAlignment
+        {
+            get { return listAlignment; }
+            set { listAlignment = value; OnPropertyChanged(); }
         }
 
         public string SelectedRace
@@ -39,23 +49,22 @@ namespace DnD
             get { return selectedClass; }
             set { selectedClass = value; OnPropertyChanged(); }
         }
+        public string SelectedAlignment
+        {
+            get { return selectedAlignment; }
+            set { selectedAlignment = value; OnPropertyChanged(); }
+        }
 
         public ChoseRaces()
         {
-            ClassStats[] classes = new ClassStats[] { new Warrior(), new Rogue() };
-            Classes = new List<string>();
-            for (int i = 0; i < classes.Length; i++)
-            {
-                Classes.Add(classes[i].ClassName);
-            }
+            ListClass = new List<string>();
+            Classes.ToList().ForEach(s => ListClass.Add(s.ClassName));
 
-            RaceStats[] races = new RaceStats[] { new Human(), new Elf() };
-            Races = new List<string>();
-            for (int j = 0; j < races.Length; j++)
-            {
-                Races.Add(races[j].NameRace);
-            }
+            ListRace = new List<string>();
+            Races.ToList().ForEach(s => ListRace.Add(s.RaceName));
 
+            ListAlignment = new List<string>();
+            Alignments.ToList().ForEach(ListAlignment.Add);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

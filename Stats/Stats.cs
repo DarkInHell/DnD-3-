@@ -3,34 +3,14 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using static DnD.RacesBin.RacesLog;
+using static DnD.AllVariable;
+using System.Linq;
 
 namespace DnD
 {
-    public class Stats : AllVariable
+    public class Stats 
     {
-        public void TextString(TextBlock one, TextBlock two, TextBlock three, TextBlock four, string l)
-        {
-            try
-            {
-                if (one != null)
-                {
-                    one.Text = l;
-                }
-                if (two != null)
-                {
-                    two.Text = l;
-                }
-                if (three != null)
-                {
-                    three.Text = l;
-                }
-                if (four != null)
-                {
-                    four.Text = l;
-                }
-            }
-            catch { }
-        }
+        bool flag = true;
 
         public void TextString(string l, TextBlock checkBox, params CheckBox[] checkBoxes)
         {
@@ -115,11 +95,10 @@ namespace DnD
             return checkBox.Content;
         }
 
-        bool flag = true;
-        public void RaceBonus(ComboBox comboBox, TextBox listBox, TextBox one, TextBox two, TextBox three, TextBox four, TextBox five, TextBox six)
+        public void RaceBonus(ComboBox comboBox, TextBox listBox, params TextBox[] textBox)
         {
-            TextBox[] textBoxes = new TextBox[] { one, two, three, four, five, six };
-            string[] StatsNum = new string[] { one.Text, two.Text, three.Text, four.Text, five.Text, six.Text };
+            string[] StatsNum = new string[textBox.Length];
+            textBox.ToList().ForEach(s => StatsNum.Append(s.Text));
             RaceStats[] racesLog = new RaceStats[] { new Human(), new Elf() };
             try
             {
@@ -127,19 +106,16 @@ namespace DnD
                 {
                     for (int i = 0; i < racesLog.Length; i++)
                     {
-                        if (comboBox.Text == racesLog[i].NameRace)
+                        if (comboBox.Text == racesLog[i].RaceName)
                         {
                             if (!listBox.Text.Contains("\r\n" + "Расовые особенности: "))
                             {
                                 listBox.Text += "\r\n" + "Расовые особенности: ";
-                                for (int j = 0; j < racesLog[i].NameAbility.Length; j++)
-                                {
-                                    listBox.Text += racesLog[i].NameAbility[j] + ", ";
-                                }
+                                racesLog[i].NameAbility.ToList().ForEach(s => listBox.Text += s + ", ");
                             }
                             for (int k = 0; k < racesLog[i].Point.Length; k++)
                             {
-                                RaceStatsEnc(Convert.ToInt32(StatsNum[k]), textBoxes[k], racesLog[i].Point[k]);
+                                RaceStatsEnc(Convert.ToInt32(StatsNum[k]), textBox[k], racesLog[i].Point[k]);
                             }
                         }
                     }
@@ -154,7 +130,7 @@ namespace DnD
 
         public string RaceStatsEnc(int StatsNum, TextBox textBox, int raceStats)
         {
-            var Num = StatsNum + raceStats;
+            int Num = StatsNum + raceStats + int.Parse(textBox.Text);
             textBox.Text = Num.ToString();
             return textBox.Text;
         }

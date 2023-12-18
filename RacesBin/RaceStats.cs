@@ -2,20 +2,18 @@
 {
     public class RaceStats
     {
-        private int[] _point;
-        private string  _nameRace;
-        private int     _speed;
-        private string  _lang;
-        private string[] _nameAbility;
-        private string[] _descriptionAbility;
+        protected int[]     _point;
+        protected string    _raceName;
+        protected int       _speed;
+        protected string    _lang;
+        protected string[]  _nameAbility;
+        protected string[]  _descriptionAbility;
 
-
-
-        public virtual int[]    Point    { get { return _point; } set { _point = value; } }
-        public virtual string   NameRace    { get { return _nameRace; } set { _nameRace = value; } }
-        public virtual int      Speed       { get { return _speed; }    set { _speed = value; } }
-        public virtual string   Lang        { get { return _lang; }     set { _lang = value; } }
-        public virtual string[] NameAbility { get { return _nameAbility; } set { _nameAbility = value; } }
-        public virtual string[] DescriptionAbility {  get { return _descriptionAbility; } set { _descriptionAbility = value; } }
+        public int[]    Point    { get { return _point; } set { _point = value; } }
+        public string   RaceName    { get { return _raceName; } set { _raceName = value; } }
+        public int      Speed       { get { return _speed; }    set { _speed = value; } }
+        public string   Lang        { get { return _lang; }     set { _lang = value; } }
+        public string[] NameAbility { get { return _nameAbility; } set { _nameAbility = value; } }
+        public string[] DescriptionAbility {  get { return _descriptionAbility; } set { _descriptionAbility = value; } }
     }
 }

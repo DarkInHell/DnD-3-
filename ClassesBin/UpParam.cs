@@ -2,17 +2,18 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using static DnD.AllVariable;
 
 namespace DnD
 {
-    public class UpParam : AllVariable
+    public class UpParam
     {
         public string Ownership(ComboBox comboBox, TextBox list)
         {
-            ClassStats[] classes = new ClassStats[] { new Warrior(), new Rogue() };
+            //ClassStats[] listClass = new ClassStats[] { new Warrior(), new Rogue() };
             try
             {
-                foreach (ClassStats c in classes)
+                foreach (ClassStats c in Classes)
                 {
                     if (comboBox.Text == c.ClassName)
                     {

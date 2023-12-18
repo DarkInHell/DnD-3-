@@ -17,8 +17,8 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,20,10,0">
+                    <TextBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextBox}" x:Name="CharName"/>
                     <TextBlock Text="Имя Персонажа" Style="{StaticResource BioTextBlock}"/>
-                    <TextBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextBox}"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Уровень: " Style="{StaticResource LvlBlock}"/>
                         <TextBlock Text="1" x:Name="LvlBlock" Style="{StaticResource LvlBox}"/>
@@ -28,20 +28,20 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel HorizontalAlignment="Right" Margin="0,0,10,0">
                             <TextBlock Text="Класс" Style="{StaticResource BioTextBlock}"/>
-                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}" x:Name="ClassCombo" LostFocus="ClassCombo_LostFocus">
+                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding ListClass}" SelectedItem="{Binding SelectedClass}" x:Name="ClassCombo" LostFocus="ClassCombo_LostFocus">
                             </ComboBox>
                             <TextBlock Text="Раса" Style="{StaticResource BioTextBlock}"/>
-                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding Races}" SelectedItem="{Binding SelectedRace}" SelectedValue="0" x:Name="RaceCombo" LostFocus="RaceCombo_GotFocus" ForceCursor="True"/>
+                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding ListRace}" SelectedItem="{Binding SelectedRace}" SelectedValue="0" x:Name="RaceCombo" LostFocus="RaceCombo_GotFocus" ForceCursor="True"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Margin="0,0,10,0">
                             <TextBlock Text="Происхождение" Style="{StaticResource BioTextBlock}"/>
-                            <TextBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextBox}"/>
+                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" x:Name="OriginCombo"/>
                             <TextBlock Text="Мировоззрение" Style="{StaticResource BioTextBlock}"/>
-                            <TextBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextBox}"/>
+                            <ComboBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextCombo}" ItemsSource="{Binding ListAlignment}" SelectedItem="{Binding SelectedAlignment}" x:Name="AlignmentCombo"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right">
                             <TextBlock Text="Имя Игрока" Style="{StaticResource BioTextBlock}"/>
-                            <TextBox HorizontalContentAlignment="Center" Style="{StaticResource BioTextBox}"/>
+                            <TextBox HorizontalContentAlignment="Center" x:Name="PlayerName" Style="{StaticResource BioTextBox}"/>
                             <TextBlock Text="Опыт" Style="{StaticResource BioTextBlock}"/>
                             <TextBox LostFocus="LvlBox_LostFocus" HorizontalContentAlignment="Center" x:Name="LvlBox" Text="0" Style="{StaticResource BioTextBox}" InputScope="Number"/>
                         </StackPanel>
@@ -220,7 +220,9 @@
             </StackPanel>
             <StackPanel Grid.Row="3">
                 <TextBox x:Name="ListSkill" Style="{StaticResource OwnershipBox}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                <Button Style="{StaticResource SaveButton}" Content="Save" Click="Button_Click"/>
             </StackPanel>
+
         </Grid>
     </ScrollViewer>
 </Page>

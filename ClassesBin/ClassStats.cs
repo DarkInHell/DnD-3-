@@ -8,24 +8,24 @@ namespace DnD.ClassesBin
 {
     public abstract class ClassStats
     {
-        private string _className;
-        private int _hitDice;
-        private string _ownershipArmor;
-        private string _ownershipWeapon;
-        private string _ownershipSpas;
-        private string _ownershipSkill;
-        private int    _skillValue;
+        protected string _className;
+        protected int    _hitDice;
+        protected string _ownershipArmor;
+        protected string _ownershipWeapon;
+        protected string _ownershipSpas;
+        protected string _ownershipSkill;
+        protected int    _skillValue;
 
-        public virtual string ClassName { get { return _className; } set { _className = value; } }
-        public virtual int HitDice { get { return _hitDice; } set { _hitDice = value; } }
-        public virtual string OwnershipArmor { get { return _ownershipArmor; } set { _ownershipArmor = value; } }
-        public virtual string OwnershipWeapon { get { return _ownershipWeapon; } set { _ownershipWeapon = value; } }
-        public virtual string OwnershipSpas { get { return _ownershipSpas; } set { _ownershipSpas = value; } }
-        public virtual string OwnershipSkill { get { return _ownershipSkill; } set { _ownershipSkill = value; } }
-        public virtual int SkillValue { get { return _skillValue; } set { _skillValue = value; } }
+        public string ClassName { get { return _className; } set { _className = value; } }
+        public int HitDice { get { return _hitDice; } set { _hitDice = value; } }
+        public string OwnershipArmor { get { return _ownershipArmor; } set { _ownershipArmor = value; } }
+        public string OwnershipWeapon { get { return _ownershipWeapon; } set { _ownershipWeapon = value; } }
+        public string OwnershipSpas { get { return _ownershipSpas; } set { _ownershipSpas = value; } }
+        public string OwnershipSkill { get { return _ownershipSkill; } set { _ownershipSkill = value; } }
+        public int SkillValue { get { return _skillValue; } set { _skillValue = value; } }
 #nullable enable
-        private string? _ownershipTool;
-        public virtual string? OwnershipTool { get { return _ownershipTool; } set { _ownershipTool = value; } }
+        protected string? _ownershipTool;
+        public string? OwnershipTool { get { return _ownershipTool; } set { _ownershipTool = value; } }
 
     }
 }

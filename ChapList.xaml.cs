@@ -5,6 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using static DnD.AllVariable;
+using DnD.Player;
+using System.Linq;
+using System.IO;
 
 namespace DnD
 {
@@ -16,23 +20,23 @@ namespace DnD
             DataContext = new ChoseRaces();
         }
 
-        private Stats stats = new Stats();
-        private UpParam upParam = new UpParam();
+        private readonly Stats stats = new Stats();
+        private readonly UpParam upParam = new UpParam();
 
 
         private void LvlBox_LostFocus(object sender, RoutedEventArgs e)
         {
             Level.LevelEnc(LvlBlock, LvlBox);
-            stats.MasterBool = true;
+            MasterBool = true;
             MasterAssign();
         }
 
         public void MasterAssign()
         {
-            if (stats.MasterBool == true)
+            if (MasterBool == true)
             {
                 MasterNum.Text = "+" + stats.MasterEnc(LvlBox);
-                stats.MasterBool = false;
+                MasterBool = false;
             }
         }
 
@@ -58,19 +62,20 @@ namespace DnD
             stats.TextString(c, CharismaStats, CSC, VYSSSB, ZAPSSB, OBMSSB, UBESSB);
 
         }
+
         private int Score = 0;
         private void PointLostFocus(object sender, RoutedEventArgs e)
         {
             StatsPointEnc();
             Score++;
-            if (Score == 6) 
+            if (Score == 6)
             {
                 stats.RaceBonus(RaceCombo, ListSkill, StrengthPoint, AgilityPoint, VitalityPoint, IntellectPoint, WitPoint, CharismaPoint);
                 StatsPointEnc();
             }
         }
 
-        private void ClickCheck (object sender, RoutedEventArgs e)
+        private void ClickCheck(object sender, RoutedEventArgs e)
         {
             var br = sender as CheckBox;
             br.Content = stats.Check_Uncheck(br);
@@ -83,7 +88,14 @@ namespace DnD
 
         private void RaceCombo_GotFocus(object sender, RoutedEventArgs e)
         {
+
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Gamer.SaveGamerCombo(ClassCombo, RaceCombo, AlignmentCombo, OriginCombo);
+            Gamer.SaveGamerBlock(out string path, PlayerName, CharName, LvlBox);
+            Gamer.SaveGamer(path);
+        }
     }
 }
