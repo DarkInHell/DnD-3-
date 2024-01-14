@@ -3,7 +3,12 @@ using DnD.RacesBin;
 using System.IO;
 using System.Linq;
 using System.Windows.Controls;
+using System.Xml.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
 using static DnD.AllVariable;
+using System;
 
 namespace DnD.Player
 {
@@ -70,6 +75,13 @@ namespace DnD.Player
             }
         }
 
+        /// <summary>
+        ///        
+        /// </summary>
+        /// <param name="comboBoxes">1. Класс
+        ///        2. Раса
+        ///        3. Мировозрение
+        ///        4. Происхождение</param>
         public static void SaveGamerCombo(params ComboBox[] comboBoxes)
         {
             Classes.ToList().ForEach(c =>
